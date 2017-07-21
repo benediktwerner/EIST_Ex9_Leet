@@ -4,46 +4,17 @@
 public class leettonormal {
 
     public static String leettonormal(String text){
-        String out ="";
-        for(int i = 0 ; i<text.length() ;i++){
-           char c = text.charAt(i);
-           switch(c){
-               case '0':
-                   out += "o";
-                   break;
-               case '1':
-                   out += "i";
-                   break;
-               case '2':
-                   out +="r";
-                   break;
-               case '3':
-                   out +="e";
-                   break;
-               case '4':
-                   out+="a";
-                   break;
-               case '5':
-                   out += "s";
-                   break;
-               case '6':
-                   out += "g";
-                   break;
-               case '7':
-                   out += "t";
-                   break;
-
-               case '8':
-                   out+="b";
-                   break;
-               case '9':
-                   out += "q";
-                   break;
-               default:
-                   out += c;
-                   break;
-           }
-        }
+        String out = text;
+        out =  out.replaceAll("0" , "o");
+        out = out.replaceAll("1" , "i");
+        out =   out.replaceAll("2","r");
+        out =out.replaceAll("3" , "e");
+        out = out.replaceAll("4" , "a");
+        out= out.replaceAll("5","s");
+        out= out.replaceAll("6","g");
+        out= out.replaceAll("7" , "t");
+        out=  out.replaceAll("8","b");
+        out=  out.replaceAll("9","q");
         return out;
     }
 
