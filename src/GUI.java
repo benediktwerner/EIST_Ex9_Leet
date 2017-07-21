@@ -14,6 +14,7 @@ import javax.swing.JSeparator;
 public class GUI {
 
     private JFrame frame;
+    private JTextArea txtNormal;
 
     /**
      * Launch the application.
@@ -55,7 +56,7 @@ public class GUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
         
-        JTextArea txtNormal = new JTextArea();
+        txtNormal = new JTextArea();
         txtNormal.setBounds(21, 45, 276, 301);
         frame.getContentPane().add(txtNormal);
         
@@ -75,7 +76,8 @@ public class GUI {
         JButton btnToLeet = new JButton("To Leet");
         btnToLeet.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String leetText = txtNormal.getText();
+                lower();
+                String leetText = Leetspeak.normalToLeet(txtNormal.getText());
                 txtLeet.setText(leetText);
             }
         });
@@ -85,7 +87,7 @@ public class GUI {
         JButton btnToNormal = new JButton("To Normal");
         btnToNormal.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String normalText = txtLeet.getText();
+                String normalText = leettonormal.leettonormal(txtLeet.getText());
                 txtNormal.setText(normalText);
             }
         });
@@ -100,10 +102,14 @@ public class GUI {
         JButton btnToLower = new JButton("To Lower Case");
         btnToLower.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                txtNormal.setText(txtNormal.getText().toLowerCase());
+                lower();
             }
         });
         btnToLower.setBounds(21, 367, 169, 35);
         frame.getContentPane().add(btnToLower);
+    }
+    
+    private void lower() {
+        txtNormal.setText(txtNormal.getText().toLowerCase());
     }
 }
