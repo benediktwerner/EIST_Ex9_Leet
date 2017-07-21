@@ -1,0 +1,109 @@
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.JSeparator;
+
+public class GUI {
+
+    private JFrame frame;
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        }
+        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e1) {
+            e1.printStackTrace();
+        }
+        
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    GUI window = new GUI();
+                    window.frame.setVisible(true);
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    /**
+     * Create the application.
+     */
+    public GUI() {
+        initialize();
+    }
+
+    /**
+     * Initialize the contents of the frame.
+     */
+    private void initialize() {
+        frame = new JFrame();
+        frame.setBounds(100, 100, 643, 543);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setLayout(null);
+        
+        JTextArea txtNormal = new JTextArea();
+        txtNormal.setBounds(21, 45, 276, 301);
+        frame.getContentPane().add(txtNormal);
+        
+        JTextArea txtLeet = new JTextArea();
+        txtLeet.setBounds(320, 45, 276, 301);
+        frame.getContentPane().add(txtLeet);
+        
+        JLabel lblNormal = new JLabel("Normal");
+        lblNormal.setBounds(21, 10, 92, 26);
+        frame.getContentPane().add(lblNormal);
+        
+        JLabel lblLeet = new JLabel("Leet");
+        lblLeet.setHorizontalAlignment(SwingConstants.RIGHT);
+        lblLeet.setBounds(504, 10, 92, 26);
+        frame.getContentPane().add(lblLeet);
+        
+        JButton btnToLeet = new JButton("To Leet");
+        btnToLeet.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String leetText = txtNormal.getText();
+                txtLeet.setText(leetText);
+            }
+        });
+        btnToLeet.setBounds(196, 367, 113, 35);
+        frame.getContentPane().add(btnToLeet);
+        
+        JButton btnToNormal = new JButton("To Normal");
+        btnToNormal.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String normalText = txtLeet.getText();
+                txtNormal.setText(normalText);
+            }
+        });
+        btnToNormal.setBounds(455, 367, 141, 35);
+        frame.getContentPane().add(btnToNormal);
+        
+        JSeparator separator = new JSeparator();
+        separator.setOrientation(SwingConstants.VERTICAL);
+        separator.setBounds(307, 45, 2, 301);
+        frame.getContentPane().add(separator);
+        
+        JButton btnToLower = new JButton("To Lower Case");
+        btnToLower.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                txtNormal.setText(txtNormal.getText().toLowerCase());
+            }
+        });
+        btnToLower.setBounds(21, 367, 169, 35);
+        frame.getContentPane().add(btnToLower);
+    }
+}
