@@ -5,7 +5,7 @@ public class LeetToNormal {
     public static String leetToNormal(String text) {
         String out = text;
         out = out.replaceAll("0", "o");
-        out = out.replaceAll("1", "i");
+        out = out.replaceAll("1", "l");
         out = out.replaceAll("2", "r");
         out = out.replaceAll("3", "e");
         out = out.replaceAll("4", "a");

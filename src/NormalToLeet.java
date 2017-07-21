@@ -1,17 +1,7 @@
 
 public class NormalToLeet {
     static String normalToLeet(String text) {
-
-        text = text.replaceAll("A", "a");
-        text = text.replaceAll("B", "b");
-        text = text.replaceAll("E", "e");
-        text = text.replaceAll("L", "l");
-        text = text.replaceAll("G", "g");
-        text = text.replaceAll("O", "o");
-        text = text.replaceAll("P", "p");
-        text = text.replaceAll("T", "t");
-        text = text.replaceAll("S", "s");
-        text = text.replaceAll("R", "r");
+        text = text.toLowerCase();
 
         text = text.replaceAll("a", "4");
         text = text.replaceAll("b", "8");
