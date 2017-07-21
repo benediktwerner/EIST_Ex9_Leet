@@ -1,7 +1,6 @@
 
-public class Leetspeak
-{
-    static String normalToLeet(String text){
+public class NormalToLeet {
+    static String normalToLeet(String text) {
 
         text = text.replaceAll("A", "a");
         text = text.replaceAll("B", "b");
@@ -25,14 +24,6 @@ public class Leetspeak
         text = text.replaceAll("s", "5");
         text = text.replaceAll("r", "2");
 
-
         return text;
-    }
-
-    public static void main(String[] args) {
-
-        String text = "Hallo, das ist ein Text!";
-
-        System.out.println(normalToLeet(text));
     }
 }

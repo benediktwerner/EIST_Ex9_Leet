@@ -77,7 +77,7 @@ public class GUI {
         btnToLeet.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 lower();
-                String leetText = Leetspeak.normalToLeet(txtNormal.getText());
+                String leetText = NormalToLeet.normalToLeet(txtNormal.getText());
                 txtLeet.setText(leetText);
             }
         });
@@ -87,7 +87,7 @@ public class GUI {
         JButton btnToNormal = new JButton("To Normal");
         btnToNormal.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String normalText = leettonormal.leettonormal(txtLeet.getText());
+                String normalText = LeetToNormal.leetToNormal(txtLeet.getText());
                 txtNormal.setText(normalText);
             }
         });
